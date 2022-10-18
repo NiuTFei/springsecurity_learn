@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_security
+    username: root
+    password: 990628
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 10.181.114.173
+    password: 990628
+

@@ -1,6 +1,7 @@
 package com.xjtu.springsecurity;
 
 import com.xjtu.springsecurity.mapper.MenuMapper;
+import com.xjtu.springsecurity.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +19,9 @@ class ApplicationTests {
     @Autowired
     private MenuMapper mapper;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @Test
     void contextLoads() {
         String root = passwordEncoder.encode("fei990628");
@@ -31,6 +35,12 @@ class ApplicationTests {
         List<String> list = mapper.selectPermsByUserId(4L);
         System.out.println(list);
 
+    }
+
+    @Test
+    void testSelectRoles(){
+        List<String> list = userMapper.selectRolesByUserId(3L);
+        System.out.println(list);
     }
 
 }

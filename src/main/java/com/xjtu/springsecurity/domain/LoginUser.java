@@ -19,12 +19,21 @@ public class LoginUser implements UserDetails {
 
     private User user;
 
-    private List<String> permissions;
+    private List<String> permissions;//权限
+
+    private List<String> roles;
 
     public LoginUser(User user, List<String> permissions) {
         this.user = user;
         this.permissions = permissions;
     }
+
+    public LoginUser(User user, List<String> permissions, List<String> roles) {
+        this.user = user;
+        this.permissions = permissions;
+        this.roles = roles;
+    }
+
 
     @JSONField(serialize = false)
     private List<SimpleGrantedAuthority> authorities;   //权限不进行序列化
@@ -47,7 +56,7 @@ public class LoginUser implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getUserName();
+        return user.getUsername();
     }
 
     @Override

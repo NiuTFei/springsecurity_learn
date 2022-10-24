@@ -49,7 +49,9 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         JSONObject object = redisCache.getCacheObject("login:" + userId);
         LoginUser loginUser = JSONObject.toJavaObject(object, LoginUser.class);
         if (Objects.isNull(loginUser)){
-            throw new RuntimeException("未登录！");
+//            throw new RuntimeException("未登录！");
+            System.out.println("未登录");
+            return;
         }
 
         //4封装Authentication

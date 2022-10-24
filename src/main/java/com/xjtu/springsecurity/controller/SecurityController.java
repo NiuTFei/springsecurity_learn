@@ -5,10 +5,7 @@ import com.xjtu.springsecurity.domain.User;
 import com.xjtu.springsecurity.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class SecurityController {
@@ -24,10 +21,15 @@ public class SecurityController {
 
     @PostMapping("/user/login")
     public ResponseResult login(@RequestBody User user){
-
+        System.out.println("正在登陆");
 
         return loginService.login(user);
+    }
 
+    @RequestMapping("/user/info")
+    public ResponseResult info(String token){
+
+        return loginService.info(token);
     }
 
     @PostMapping("/user/logout")

@@ -9,4 +9,7 @@ public interface LoginService {
 
 
     ResponseResult logout();
+
+
+    ResponseResult info(String token);
 }
